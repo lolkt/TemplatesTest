@@ -9,18 +9,15 @@
     <open file="${escapeXmlAttribute(resOut)}/layout/${layoutName}.xml" />
 </#if>
 
-	<!--View-activity-->
+	<!--activity-->
     <instantiate from="root/src/app_package/MvpActivity.${ktOrJavaExt}.ftl"
-                   to="${escapeXmlAttribute(srcOut)}/activity/${activityClass}.${ktOrJavaExt}" />
-	<!--Model-->
-	<instantiate from="root/src/app_package/MvpModel.${ktOrJavaExt}.ftl"
-                   to="${escapeXmlAttribute(srcOut)}/model/${activityClass}Model.${ktOrJavaExt}" />	
-	<!--Contact-->
-	<instantiate from="root/src/app_package/MvpContact.${ktOrJavaExt}.ftl"
-                   to="${escapeXmlAttribute(srcOut)}/contact/${activityClass}Contact.${ktOrJavaExt}" />
+                   to="${escapeXmlAttribute(srcOut)}/activity/${activityName}Activity.${ktOrJavaExt}" />
+	  <!--View-->
+	<instantiate from="root/src/app_package/MvpView.${ktOrJavaExt}.ftl"
+                   to="${escapeXmlAttribute(srcOut)}/view/I${activityName}View.${ktOrJavaExt}" />
 	<!--Presenter-->
 	<instantiate from="root/src/app_package/MvpPresenter.${ktOrJavaExt}.ftl"
-                   to="${escapeXmlAttribute(srcOut)}/presenter/${activityClass}Presenter.${ktOrJavaExt}" />	   
+                   to="${escapeXmlAttribute(srcOut)}/presenter/${activityName}Presenter.${ktOrJavaExt}" />	   
     <open file="${escapeXmlAttribute(srcOut)}/activity/${activityClass}.${ktOrJavaExt}" />
 
 </recipe>

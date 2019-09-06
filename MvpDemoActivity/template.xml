@@ -10,12 +10,21 @@
     <category value="Activity" />
     <formfactor value="Mobile" />
 
+
+    <parameter
+        id="activityName"
+        name="Biz Name"
+        type="string"
+        constraints="unique|nonempty"
+        default="Biz"
+        help="Business Name" />
+		
     <parameter
         id="activityClass"
         name="Activity Name"
         type="string"
         constraints="class|unique|nonempty"
-        suggest="${layoutToActivity(layoutName)}"
+        suggest="${activityName}Activity"
         default="OtherActivity"
         help="Activity的名字" />
 
@@ -35,21 +44,7 @@
         default="activity_other"
         visibility="generateLayout"
         help="Activity对应的布局名" />
-
-    <parameter
-        id="isLauncher"
-        name="Launcher Activity"
-        type="boolean"
-        default="false"
-        help="是否作为启动的Activity" />
-
-    <parameter
-        id="backwardsCompatibility"
-        name="Backwards Compatibility (AppCompat)"
-        type="boolean"
-        default="true"
-        help="If false, this activity base class will be Activity instead of AppCompatActivity" />
-
+ 
     <parameter
         id="packageName"
         name="Package name"
@@ -57,6 +52,30 @@
         constraints="package"
         default="com.mycompany.myapp" />
 
+    <parameter
+        id="isLauncher"
+        name="Launcher Activity"
+        type="boolean"
+        default="false"
+        help="是否作为启动的Activity" />
+		
+    <parameter
+        id="presenterClass"
+        name="mvp presenter"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${activityName}Presenter"
+        help="Activity的名字" />
+		
+		
+	<parameter
+        id="viewClass"
+        name="mvp view"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="I${activityName}View"
+        help="Activity的名字" />
+		
     <parameter
         id="includeInstantAppUrl"
         name="Associate a URL with this Activity"
